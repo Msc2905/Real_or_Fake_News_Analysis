@@ -43,7 +43,7 @@ def news_prediction(news):
     new_def_test['text'] = new_def_test['text'].apply(wordopt)
     new_x_test = new_def_test['text']
     new_tfidf_test = vectorizer.transform(new_x_test)
-    pred_dt = decision_tree.predict(new_tfidf_test)
+    pred_dt = svm_model.predict(new_tfidf_test)
 
     if pred_dt[0] == 0:
         return "This is Fake News!"
